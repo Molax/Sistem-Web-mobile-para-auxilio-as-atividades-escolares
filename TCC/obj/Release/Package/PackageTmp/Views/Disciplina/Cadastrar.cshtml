@@ -1,0 +1,50 @@
+﻿@model Dominio.Disciplina
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cadastrar Nova Disciplina</h3>
+                </div>
+                <div class="panel-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
+                        @Html.AntiForgeryToken()
+                        
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.nome, "Nome", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.nome, new { @class = "form-control", @autofocus = "autofocus" })
+                                    @Html.ValidationMessageFor(m => m.nome)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.tipo, "Tipo", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(m => m.tipo, new { @class = "form-control", @autofocus = "autofocus" })
+                                    @Html.ValidationMessageFor(m => m.tipo)
+                                </div>
+                            </div>
+
+                            <p>
+                                <button type="submit" class="btn btn-default">Cadastrar</button>
+                            </p>
+                        
+                    }
+
+                    <div>
+                        @Html.ActionLink("Voltar a lista", "Visualizar")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

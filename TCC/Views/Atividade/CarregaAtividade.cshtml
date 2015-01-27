@@ -1,0 +1,148 @@
+﻿@model PagedList.IPagedList<Dominio.Questao>
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "CarregaAtividade";
+    var cont = 0;
+}
+@*<script type="text/javascript">
+    var imageURLs = [
+         "/Content/img/dora1.png"
+       , "/Content/img/peppa1.png"
+       , "/Content/img/dora2.png"
+       , "/Content/img/bobsponja1.png"
+       , "/Content/img/galinha1.png"
+       , "/Content/img/peixonauta1.png"
+    ];
+    function getImageTag() {
+        var img = '<img src=\"';
+        var randomIndex = Math.floor(Math.random() * imageURLs.length);
+        img += imageURLs[randomIndex];
+        img += '\" alt=\"teste\"/';
+        img += '\" style=\"width:404px;height:228px\"/>';
+        return img;
+    }
+</script>*@
+<style type="text/css">
+    body {
+      background: no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-12">
+
+
+            <div style="width: 95%; margin: auto;">
+                <img src="../../Content/img/dorah1.png" alt="Mountain View" style="width:500px;height:228px">
+                </div>
+            <div style="width: 60%; margin: auto;" id="form1">
+                @foreach (var item in Model)
+                {
+                    <label id="qst" class="hide">@item.idQuestao</label>
+                    <label id="atv" class="hide">@item.idAtividade</label>
+              
+               
+                    <h3>@item.descricao</h3>
+              
+                    <br />
+                    foreach (var opc in item.opcoes)
+                    {
+                        cont++;
+                        var name = "opcx";
+                    
+                    <div style="margin: 10px;" class="input-group">
+                        <span class="input-group-addon">
+                            <input name="@name" id="gg"  style="width:22px;height:22px;" type="radio">
+                        </span>
+
+
+                        <label style="width: 20em; height: 3em; " class="form-control">@opc.descricao</label>
+                    </div>
+                
+                    }
+                }
+
+
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div id="pag">
+                <div style="width: 60%; margin: auto;">
+                    @if (@Model.FirstItemOnPage != @Model.TotalItemCount)
+                    {
+
+                    }
+                    else
+                    {
+                          
+                        <input src="../../Content/img/galinhasub.png" id="cad" name="searchsubmit" type="image" value="" />
+                            
+                    }
+
+
+                </div>
+
+                @Html.PagedListPager(Model, page => Url.Action("CarregaAtividade", new { page, pageSize = Model.PageSize }), PagedListRenderOptions.TwitterBootstrapPagerAligned)
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var images = ['../../Content/img/backgalinha1.png'
+                     ];
+
+        var randomNumber = Math.floor(Math.random() * images.length);
+        var bgImg = 'url(' + images[randomNumber] + ')';
+
+        $('body').css({ 'background': (bgImg), 'background-size': 'cover', '-o-background-size': 'cover','-webkit-background-size': 'cover','-moz-background-size': 'cover',' background-repeat': 'no-repeat','background-attachment': 'fixed','background-position': 'center' });
+
+    });
+</script>
+<script>
+
+    $('.pager').on('click', 'a', function () {
+
+        var opc = $('input[name=opcx]:checked').index('input[name=opcx]');
+        var idQuestao = $("#qst").text();
+        var idAtividade = $("#atv").text();
+        var aluno = " ";
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Content("~/Atividade/postResposta")',
+            data: { opc: opc, questao: idQuestao, atividade: idAtividade, aluno: aluno, cont: '@Model.FirstItemOnPage' },
+            success: function (data) {
+
+            }
+
+        });
+
+    });
+    $('#cad').click(function () {
+        console.log('foi');
+        var opc = $('input[name=opcx]:checked').index('input[name=opcx]');
+        var idQuestao = $("#qst").text();
+        var idAtividade = $("#atv").text();
+        var aluno = " ";
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Content("~/Atividade/postResposta")',
+            data: { opc: opc, questao: idQuestao, atividade: idAtividade, aluno: aluno },
+            success: function (data) {
+                window.location.href = '@Url.Content("~/Atividade/VisualizaScore")';
+            }
+
+        });
+
+    });
+
+</script>

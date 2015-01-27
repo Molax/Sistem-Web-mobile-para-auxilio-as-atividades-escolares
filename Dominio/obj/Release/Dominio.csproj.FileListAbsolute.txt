@@ -1,0 +1,5 @@
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Dominio\bin\Release\Dominio.dll
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Dominio\bin\Release\Dominio.pdb
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Dominio\obj\Release\Dominio.dll
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Dominio\obj\Release\Dominio.pdb
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Dominio\obj\Release\Dominio.csprojResolveAssemblyReference.cache

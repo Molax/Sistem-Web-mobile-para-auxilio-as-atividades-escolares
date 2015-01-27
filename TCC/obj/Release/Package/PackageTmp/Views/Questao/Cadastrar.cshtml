@@ -1,0 +1,130 @@
+﻿@model Dominio.ViewModelQuestao
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cadastrar Questão</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form id="formdojp">
+
+                        @Html.ValidationSummary(true)
+                        @Html.AntiForgeryToken()
+
+                        
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.questao.descricao, "Descrição da Questao", new { @class = "control-label col-md-2" })
+                                <div class="col-md-7">
+                                    <input id="descricao" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.opcao.descricao, "Opcao 1", new { @class = "control-label col-md-2" })
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input name="aaa" value="1" type="radio">
+                                        </span>
+                                        <input id="op1" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.opcao.descricao, "Opcao 2", new { @class = "control-label col-md-2" })
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input name="aaa" value="2" type="radio">
+                                        </span>
+                                        <input id="op2" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.opcao.descricao, "Opcao 3", new { @class = "control-label col-md-2" })
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input name="aaa" value="3" type="radio">
+                                        </span>
+                                        <input id="op3" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.opcao.descricao, "Opcao 4", new { @class = "control-label col-md-2" })
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input name="aaa" value="4" type="radio">
+                                        </span>
+                                        <input id="op4" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.opcao.descricao, "Opcao 5", new { @class = "control-label col-md-2" })
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input name="aaa" value="5" type="radio">
+                                        </span>
+                                        <input id="op5" type="text" class="form-control">
+                                    </div>
+                                    <!-- /input-group -->
+
+                                </div>
+                            </div>
+
+                            <p>
+
+                                <input id="cad" type="submit" class="btn btn-default" value="Cadastrar Questão" />
+                            </p>
+                       
+                    </form>
+
+
+                    <div>
+                        <a href="/Atividade/Visualizar">Terminar cadastro de Questoes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#cad').click(function () {
+        console.log('foi');
+        var descricao = $("#descricao").val();
+        var op1 = $("#op1").val();
+        var op2 = $("#op2").val();
+        var op3 = $("#op3").val();
+        var op4 = $("#op4").val();
+        var op5 = $("#op5").val();
+        var opcaoCorreta = $('input[name=aaa]:checked', '#formdojp').val();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Content("~/Questao/Cadastro1")',
+            data: { descricao: descricao, op1: op1, op2: op2, op3: op3, op4: op4, op5: op5, opcaoCorreta: opcaoCorreta },
+            success: function (data) {
+                window.location.href = '@Url.Content("~/Questao/Cadastrar")';
+            }
+
+        });
+
+    });
+
+</script>
+

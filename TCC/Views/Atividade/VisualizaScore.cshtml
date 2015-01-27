@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Dominio.Score>
+
+@{
+    ViewBag.Title = "VisualizaScore";
+}
+<style type="text/css">
+    body {
+      background: url('../Content/img/galinhaback1.png') no-repeat  fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+<div class="container"style="width: 50%; margin: auto;">
+    <div class="row">
+        <div class="form-horizontal col-sm-6">
+           
+                <div class="panel-heading">
+                    <h3 class="panel-title">Pontuação das Atividades</h3>
+                </div>
+                <div class="panel-body">
+
+
+                    <table class="table"  style="width: 60%; margin: auto;">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nomealuno)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.score)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.idAtividade)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nomealuno)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.score)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idAtividade)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Voltar as Atividades", "AtividadeAluno", new { id = item.idAluno })
+
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

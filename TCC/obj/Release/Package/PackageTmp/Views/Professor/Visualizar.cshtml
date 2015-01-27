@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Dominio.Professor>
+
+@{
+    ViewBag.Title = "Visualizar";
+}
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-12">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Visualizar Professor</h3>
+                </div>
+                <div class="panel-body">
+
+                    <p>
+                        @Html.ActionLink("Cadastrar novo Professor", "Cadastrar")
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idProf)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.telProf)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.sexoProf)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nascimentoProf)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.enderecoProf)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cpfProf)
+                            </th>
+                         
+                            <th>
+                                @Html.DisplayNameFor(model => model.formacao)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.senha)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.login)
+                            </th>
+
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idProf)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.telProf)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.sexoProf)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nascimentoProf)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.enderecoProf)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.cpfProf)
+                                </td>
+                            
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.formacao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.senha)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.login)
+                                </td>
+
+                                <td>
+                                    @Html.ActionLink("Editar", "Editar", new { id = item.idProf }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.idProf }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id = item.idProf })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

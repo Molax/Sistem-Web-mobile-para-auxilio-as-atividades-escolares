@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Dominio.Disciplina>
+
+@{
+    ViewBag.Title = "Visualizar";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-6">
+
+                                  <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Disciplinas</h3>
+                </div>
+                <div class="panel-body">
+
+            <p>
+                @Html.ActionLink("Cadastrar nova disciplina", "Cadastrar")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.idDisciplina)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tipo)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.idDisciplina)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tipo)
+                        </td>
+                        <td>
+                        
+            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.idDisciplina }) 
+           
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+</div></div>

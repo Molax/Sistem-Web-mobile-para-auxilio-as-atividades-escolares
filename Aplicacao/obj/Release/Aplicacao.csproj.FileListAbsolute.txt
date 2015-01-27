@@ -1,0 +1,9 @@
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Aplicacao\bin\Release\Aplicacao.dll
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Aplicacao\bin\Release\Aplicacao.pdb
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Aplicacao\bin\Release\Dominio.dll
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Aplicacao\bin\Release\Repositorio.dll
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Aplicacao\bin\Release\Dominio.pdb
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Aplicacao\bin\Release\Repositorio.pdb
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Aplicacao\obj\Release\Aplicacao.csprojResolveAssemblyReference.cache
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Aplicacao\obj\Release\Aplicacao.dll
+C:\Users\JotaPe\documents\visual studio 2012\Projects\TCC\Aplicacao\obj\Release\Aplicacao.pdb

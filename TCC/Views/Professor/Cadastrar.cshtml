@@ -1,0 +1,116 @@
+﻿@model Dominio.Professor
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cadastrar Novo Professor</h3>
+                </div>
+                <div class="panel-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
+                        @Html.AntiForgeryToken()
+
+                
+                  
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Nome, "Nome", new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(m => m.Nome)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.telProf, "Telefone", new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.telProf, new { @class = "form-control", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(m => m.telProf)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.sexoProf, "Sexo", new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.sexoProf, new { @class = "form-control", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(m => m.sexoProf)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.nascimentoProf, "Data de Nascimento", new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.nascimentoProf, new { @class = "form-control", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(m => m.nascimentoProf)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.enderecoProf, "Endereço", new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.enderecoProf, new { @class = "form-control", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(m => m.enderecoProf)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.cpfProf, "Cpf", new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.cpfProf, new { @class = "form-control", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(m => m.cpfProf)
+                            </div>
+                        </div>
+
+                     
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.formacao, "Formação", new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(m => m.formacao, new { @class = "form-control", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(m => m.formacao)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.senha, "Senha", new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.PasswordFor(m => m.senha, new  { @class = "form-control", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(m => m.senha)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.login, "login", new {  @class = "control-label col-md-2" })
+                            <div class="col-md-2">
+                                @Html.TextBoxFor(m => m.login, new { @class = "form-control", @autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(m => m.login)
+                            </div>
+                        </div>
+
+
+                   
+
+                        <p>
+                            <button type="submit" class="btn btn-default">Cadastrar</button>
+                        </p>
+              
+                    }
+
+                    <div>
+                        @Html.ActionLink("Voltar a Lista", "Visualizar")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

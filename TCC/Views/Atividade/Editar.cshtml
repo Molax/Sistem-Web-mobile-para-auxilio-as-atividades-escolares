@@ -1,0 +1,56 @@
+﻿@model Dominio.Atividade
+
+@{
+    ViewBag.Title = "Editar";
+}
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-12">
+                                   <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Editar Atividade</h3>
+                </div>
+                <div class="panel-body">
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+
+
+                
+                    
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.idAtividade, "ID", new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.idAtividade, new { @class = "form-control", @autofocus = "autofocus" })
+                            @Html.ValidationMessageFor(m => m.idAtividade)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.estado, "Avaliada :", new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.estado, new { @class = "form-control", @autofocus = "autofocus" })
+                            
+                        </div>
+                    </div>
+
+
+
+                    <p>
+                        <input type="submit" class="btn btn-default" value="Avaliar" />
+                    </p>
+                
+            }
+
+            <div>
+                @Html.ActionLink("Voltar a Lista", "Visualizar")
+            </div>
+
+        </div>
+    </div>
+</div>
+</div></div>

@@ -1,0 +1,113 @@
+﻿@model Dominio.Aluno
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-6">
+
+                       <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Detalhes do Aluno</h3>
+                </div>
+                <div class="panel-body">
+            <hr />
+            <div class="row">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.LabelFor(model => model.idAluno, "ID do Aluno")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.idAluno)
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.Nome, "Nome")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.telAluno, "Telefone")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.telAluno)
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.sexoAluno, "Sexo")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.sexoAluno)
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.nascimentoAluno, "Data de Nascimento")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.nascimentoAluno)
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.enderecoAluno, "Endereço")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.enderecoAluno)
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.cpfAluno, "Cpf")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.cpfAluno)
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.tipo, "Tipo")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.tipo)
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.senha, "Senha")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.senha)
+                    </dd>
+
+                    <dt>
+                        @Html.LabelFor(model => model.login, "Login")
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.login)
+                    </dd>
+
+               
+                
+
+
+                </dl>
+                                   
+    @Html.ActionLink("Editar", "Editar", new { id = Model.idAluno }) |
+     @Html.ActionLink("Voltar a Lista", "Visualizar")
+
+            </div>
+        </div>
+    </div>
+</div></div></div>

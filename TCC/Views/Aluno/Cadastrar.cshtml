@@ -1,0 +1,144 @@
+﻿@model Dominio.Aluno
+
+
+@{
+    ViewBag.Title = "Cadastrar";
+
+}
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-12">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cadastrar Novo Aluno</h3>
+                </div>
+                <div class="panel-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
+                        @Html.AntiForgeryToken()
+                        
+                           
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Nome, "Nome", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <input id="nome" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.telAluno, "Telefone", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <input id="tel" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.sexoAluno, "Sexo", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <input id="sexo" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.nascimentoAluno, "Data de Nascimento", new { @class = "control-label col-md-2", @type = "date" })
+                                <div class="col-md-4">
+                                    <input id="dataNasc" type="date" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.enderecoAluno, "Endereço", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <input id="endereco" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.cpfAluno, "Cpf", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <input id="cpf" type="text" class="form-control">
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.senha, "Senha", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <input id="senha" type="password" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.login, "Login", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <input id="login" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.idTurma, "Turma", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <select id="um" class="form-control">
+                                        @foreach (var item in Model.Turma)
+                                        { 
+                             
+                                            <option>@item.nome</option>  
+                         
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                            </div>
+                            <p>
+                                <input id="cad" class="btn btn-default" type="button" value="Cadastrar" />
+                            </p>
+                        
+                    }
+
+                    <div>
+                        @Html.ActionLink("Voltar a Lista", "Visualizar")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('#cad').click(function () {
+        console.log('foi');
+        var nturma = $('#um').find(":selected").text();
+        var nome = $("#nome").val();
+        var tel = $("#tel").val();
+        var sexo = $("#sexo").val();
+        var tipo = $("#tipo").val();
+        var datan = $("#dataNasc").val();
+        var cpf = $("#cpf").val();
+        var end = $("#endereco").val();
+        var login = $("#login").val();
+        var senha = $("#senha").val();
+        console.log(nturma);
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Content("~/Aluno/Cadastro1")',
+            data: { turma: nturma, nome: nome, tel: tel, sexo: sexo, tipo: tipo, datan: datan, cpf: cpf, end: end, senha: senha, login: login },
+            success: function (data) {
+                window.location.href = '@Url.Content("~/Aluno/Visualizar")';
+            }
+
+        });
+
+    });
+
+</script>
+
+

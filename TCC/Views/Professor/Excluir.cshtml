@@ -1,0 +1,104 @@
+﻿@model Dominio.Professor
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Professor</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idProf)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idProf)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.telProf)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.telProf)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.sexoProf)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.sexoProf)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nascimentoProf)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nascimentoProf)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.enderecoProf)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.enderecoProf)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cpfProf)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cpfProf)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.formacao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.formacao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.senha)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.senha)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.login)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.login)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idTurma)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idTurma)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+       @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Visualizar")
+    </p>
+}

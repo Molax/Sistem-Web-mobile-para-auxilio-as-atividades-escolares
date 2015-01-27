@@ -1,0 +1,87 @@
+﻿@model Dominio.Atividade
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cadastrar Nova Atividade</h3>
+                </div>
+                <div class="panel-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.ValidationSummary(true)
+                        @Html.AntiForgeryToken()
+
+                        
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.descricao, "Descricação", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <input id="descricao" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ano, "Data da Atividade", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <input id="ano" type="date" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.idTurma, "Turma", new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <select id="turma" class="form-control">
+                                        @foreach (var item in Model.Turma)
+                                        { 
+                             
+                                            <option>@item.nome</option>  
+                         
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <p>
+                                <input id="cad" type="button" class="btn btn-default" value="Cadastrar" />
+                            </p>
+                        
+                    }
+
+                    <div>
+                        @Html.ActionLink("Voltar a lista", "Visualizar")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#cad').click(function () {
+        console.log('foi');
+        var descricao = $("#descricao").val();
+        var ano = $("#ano").val();
+        var estado = 'N';
+        var turma = $('#turma').find(":selected").text();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Content("~/Atividade/Cadastrar1")',
+            data: { descricao: descricao, ano: ano, estado: estado, turma: turma },
+            success: function (data) {
+                window.location.href = '@Url.Content("~/Questao/Cadastrar")';
+            }
+
+        });
+
+    });
+
+
+</script>
+

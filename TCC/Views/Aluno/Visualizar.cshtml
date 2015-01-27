@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Dominio.Aluno>
+
+@{
+    ViewBag.Title = "Visualizar";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="form-horizontal col-sm-12">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"> Alunos</h3>
+                </div>
+                <div class="panel-body">
+
+                    <p>
+                        @Html.ActionLink("Cadastrar novo aluno", "Cadastrar")
+                    </p>
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idAluno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.telAluno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.sexoAluno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nascimentoAluno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.enderecoAluno)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cpfAluno)
+                            </th>
+                       
+                            <th>
+                                @Html.DisplayNameFor(model => model.senha)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.login)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.turma)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idAluno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.telAluno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.sexoAluno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nascimentoAluno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.enderecoAluno)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.cpfAluno)
+                                </td>
+                              
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.senha)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.login)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.turma)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Editar", new { id = item.idAluno }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.idAluno }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id = item.idAluno })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

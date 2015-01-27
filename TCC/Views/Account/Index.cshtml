@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<span class="button" id="toggle-login">Fazer Login</span>
+
+<div id="login">
+  <div id="triangle"></div>
+  <h1>Log in</h1>
+  <form action="Index" method="post">
+
+    <input  id="usuario" name="usuario" type="text" placeholder="Login" />
+    <input id="senha" name="senha" type="password" placeholder="Senha" />
+    <input type="submit" value="Entrar" />
+  </form>
+</div>
+
+<script>
+
+    $('#toggle-login').click(function () {
+        $('#login').toggle();
+    });
+</script>

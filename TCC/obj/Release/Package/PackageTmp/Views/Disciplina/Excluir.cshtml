@@ -1,0 +1,41 @@
+﻿@model Dominio.Disciplina
+
+@{
+    ViewBag.Title = "Excluir";
+}
+
+<h2>Excluir</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Disciplina</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idDisciplina)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idDisciplina)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nome)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nome)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo)
+    </div>
+</fieldset>
+@using (Html.BeginForm())
+{ @Html.AntiForgeryToken()
+     @Html.ValidationSummary(true)
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Voltar a Lista", "Visualizar")
+    </p>
+}
